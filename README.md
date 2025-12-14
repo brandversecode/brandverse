@@ -83,11 +83,12 @@ The contact form is configured to submit data to Google Sheets. To set this up:
 1. Create a new Google Sheet
 2. Set the following headers in the first row:
    - Column A: `Date`
-   - Column B: `Email`
-   - Column C: `Name`
-   - Column D: `Phone`
-   - Column E: `Service`
-   - Column F: `Message`
+   - Column B: `Time`
+   - Column C: `Email`
+   - Column D: `Name`
+   - Column E: `Phone`
+   - Column F: `Service`
+   - Column G: `Message`
 
 ### 2. Create Google Apps Script
 
@@ -116,7 +117,19 @@ function doPost (e) {
     const nextRow = sheet.getLastRow() + 1
 
     const newRow = headers.map(function(header) {
-      return header === 'Date' ? new Date() : e.parameter[header]
+      if (header === 'Date') {
+        // Format date: DD/MM/YYYY
+        const now = new Date();
+        const formattedDate = Utilities.formatDate(now, Session.getScriptTimeZone(), 'dd/MM/yyyy');
+        return formattedDate;
+      }
+      if (header === 'Time') {
+        // Format time: HH:MM:SS
+        const now = new Date();
+        const formattedTime = Utilities.formatDate(now, Session.getScriptTimeZone(), 'HH:mm:ss');
+        return formattedTime;
+      }
+      return e.parameter[header];
     })
 
     sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])

@@ -44,13 +44,32 @@ export default function Contact() {
     try {
       // Google Sheets integration
       // Get the Google Apps Script web app URL from environment variable
-      const googleSheetsUrl = import.meta.env.VITE_GOOGLE_SHEETS_WEBAPP_URL;
-      
+      const googleSheetsUrl = "https://script.google.com/macros/s/AKfycbzCd-_zFcLHy_ZF0b-NK_QbL7sKs5H8u909Saisn7e_1PCD0li49a0BLsoQJnjn2j32/exec";      
       if (googleSheetsUrl) {
         // Prepare form data for Google Sheets
         // Note: Field names must match Google Sheet column headers (case-sensitive)
-        // Expected headers: Date, Email, Name, Phone, Service, Message
+        // Expected headers: Date, Time, Email, Name, Phone, Service, Message
         const formDataToSubmit = new URLSearchParams();
+        
+        // Add separate Date and Time (formatted for Indian timezone)
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        });
+        const timeStr = now.toLocaleTimeString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+        
+        // Send Date and Time separately
+        formDataToSubmit.append("Date", dateStr);
+        formDataToSubmit.append("Time", timeStr);
         formDataToSubmit.append("Email", data.email);
         formDataToSubmit.append("Name", `${data.firstName} ${data.lastName}`);
         formDataToSubmit.append("Phone", data.phone);
