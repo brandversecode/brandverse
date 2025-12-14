@@ -79,7 +79,7 @@ export function Navbar() {
           style={{ width: `${scrollProgress}%` }}
         />
 
-        <div className="flex items-center justify-between h-20 w-full">
+        <div className="flex items-center justify-between h-16 sm:h-20 w-full">
           {/* Logo */}
           <Link
             to="/"
@@ -90,7 +90,7 @@ export function Navbar() {
               <img
                 src={logo}
                 alt="Brandverse Studio"
-                className="h-20 w-auto transition-all duration-300 group-hover:scale-105"
+                className="h-16 sm:h-20 w-auto transition-all duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-teal/10 to-gold/10 rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 pointer-events-none" />
             </div>

@@ -122,7 +122,7 @@ export default function Index() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-6rem)] lg:min-h-screen flex items-center overflow-hidden max-w-full"
+        className="relative min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-6rem)] lg:min-h-screen flex items-center overflow-hidden max-w-full pt-24 md:pt-0"
       >
         <Background3D variant="hero" />
         
@@ -140,14 +140,14 @@ export default function Index() {
           }}
         />
         
-        <div className="section-container relative z-10 py-6 sm:py-8 md:py-10 lg:py-12 max-w-full">
+        <div className="section-container relative z-10 py-6 sm:py-8 md:py-10 lg:py-12 max-w-full mt-8 md:mt-0">
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center">
             {/* Content */}
-            <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl w-full overflow-hidden px-2 sm:px-0">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl w-full overflow-hidden px-2 sm:px-0 pt-4 md:pt-0">
               {/* Badge with animation */}
               <div
                 className={cn(
-                  "inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-primary/20 via-primary/15 to-primary/20 dark:bg-primary/25 text-primary text-xs sm:text-sm font-semibold transition-all duration-1000 border border-primary/40 shadow-md backdrop-blur-sm",
+                  "inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-primary/20 via-primary/15 to-primary/20 dark:bg-primary/25 text-primary text-xs sm:text-sm font-semibold transition-all duration-1000 border border-primary/40 shadow-md backdrop-blur-sm mb-2 md:mb-0",
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 )}
               >

@@ -114,7 +114,7 @@ export default function Services() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-6rem)] lg:min-h-screen flex items-center overflow-hidden max-w-full"
+        className="relative min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-6rem)] lg:min-h-screen flex items-center overflow-hidden max-w-full pt-24 md:pt-0"
       >
         <Background3D variant="hero" />
         
@@ -132,10 +132,10 @@ export default function Services() {
           }}
         />
         
-        <div className="section-container relative z-10 py-6 sm:py-8 md:py-10 lg:py-12 max-w-full">
+        <div className="section-container relative z-10 py-6 sm:py-8 md:py-10 lg:py-12 max-w-full mt-8 md:mt-0">
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center">
             {/* Content */}
-            <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl w-full overflow-hidden px-2 sm:px-0">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl w-full overflow-hidden px-2 sm:px-0 pt-4 md:pt-0">
               {/* Badge with animation */}
               <div
                 className={cn(

@@ -14,7 +14,7 @@ export function Layout({ children }: LayoutProps) {
       <Background3D variant="mesh" />
       
       <Navbar />
-      <main className="flex-1 pt-19 relative z-6">{children}</main>
+      <main className="flex-1 relative z-10">{children}</main>
       <Footer />
     </div>
   );

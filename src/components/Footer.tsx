@@ -216,13 +216,13 @@ export function Footer() {
             </p>
             <div className="flex gap-6 text-sm">
               <a 
-                href="#" 
+                href="/privacy" 
                 className="text-white/60 hover:text-primary transition-colors duration-300 hover:underline"
               >
                 Privacy Policy
               </a>
               <a 
-                href="#" 
+                href="/terms" 
                 className="text-white/60 hover:text-primary transition-colors duration-300 hover:underline"
               >
                 Terms of Service
