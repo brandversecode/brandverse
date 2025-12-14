@@ -1,0 +1,17 @@
+# Mailmap file to consolidate contributor identities
+# This helps GitHub show a cleaner contributors list
+
+# Map bot accounts to be excluded or mapped to real contributors
+# Format: Proper Name <email> <commit-email>
+
+# Map lovable-dev bot commits to be excluded (if any exist)
+# lovable-dev[bot] <noreply@github.com> <any-email@example.com>
+
+# Map gpt-engineer-app bot if needed
+# gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+
+# Ensure consistent name/email for real contributors
+Divyansh <divyanshrohil28@gmail.com>
+alpha-photon <divyanshrohil28@gmail.com>
+Muskan Thakur <muskanthakurt21@gmail.com>
+muskannthakurr <muskanthakurt21@gmail.com>
