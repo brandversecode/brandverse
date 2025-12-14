@@ -133,10 +133,10 @@ export default {
         },
         "glow-pulse": {
           "0%, 100%": { 
-            boxShadow: "0 0 20px hsl(var(--teal) / 0.3)",
+            boxShadow: "0 0 20px hsl(var(--teal) / 0.35)",
           },
           "50%": { 
-            boxShadow: "0 0 40px hsl(var(--teal) / 0.6)",
+            boxShadow: "0 0 40px hsl(var(--teal) / 0.55)",
           },
         },
       },

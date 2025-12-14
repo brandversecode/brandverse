@@ -13,6 +13,7 @@ import {
   ArrowRight,
   Target,
   Sparkles,
+  Star,
 } from "lucide-react";
 
 const whyUs = [
@@ -191,19 +192,32 @@ export default function About() {
               <div className="absolute -inset-4 bg-gradient-to-br from-teal/20 via-transparent to-gold/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
               
               <div className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center p-2">
-                {/* Simple About Us Details SVG */}
+                {/* Animated Company Story Visualization */}
                 <svg
-                  viewBox="0 0 600 450"
-                  className="w-full h-full max-w-4xl scale-110 md:scale-125"
+                  viewBox="0 0 700 500"
+                  className="w-full h-full max-w-5xl scale-75 sm:scale-90 md:scale-100 lg:scale-110 xl:scale-125"
                   xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid meet"
                 >
                   <defs>
-                    <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="hsl(175, 54%, 48%)" />
-                      <stop offset="100%" stopColor="hsl(42, 50%, 54%)" />
+                    <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="hsl(265, 75%, 58%)" />
+                      <stop offset="50%" stopColor="hsl(265, 75%, 68%)" />
+                      <stop offset="100%" stopColor="hsl(15, 85%, 60%)" />
                     </linearGradient>
-                    <filter id="glow">
-                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <linearGradient id="aboutFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="hsl(265, 75%, 58%)" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="hsl(15, 85%, 60%)" stopOpacity="0.6" />
+                    </linearGradient>
+                    <filter id="aboutGlow">
+                      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                    <filter id="aboutSoftGlow">
+                      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
                       <feMerge>
                         <feMergeNode in="coloredBlur"/>
                         <feMergeNode in="SourceGraphic"/>
@@ -211,70 +225,168 @@ export default function About() {
                     </filter>
                   </defs>
                   
-                  {/* Card 1: Our Team */}
-                  <g transform="translate(50, 50)" className="group-hover:translate-y-[-5px] transition-transform duration-300">
-                    <rect x="0" y="0" width="140" height="100" rx="12" fill="hsl(var(--card))" stroke="url(#aboutGrad)" strokeWidth="2" opacity="0.9" className="group-hover:opacity-100 transition-opacity" />
-                   
-                    {/* Team Icon */}
-                   
-                    <text x="70" y="55" textAnchor="middle" fontSize="20" fontWeight="bold" fill="hsl(var(--foreground))">Expert</text>
-                    <text x="70" y="75" textAnchor="middle" fontSize="12" fill="hsl(var(--muted-foreground))">Team</text>
+                  {/* Animated Background Pulse */}
+                  <circle cx="350" cy="250" r="220" fill="url(#aboutGrad)" opacity="0.08">
+                    <animate attributeName="r" values="220;240;220" dur="5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.08;0.12;0.08" dur="5s" repeatCount="indefinite" />
+                  </circle>
+                  
+                  {/* Central Brandverse Logo/Heart */}
+                  <g id="centralBrand">
+                    <circle cx="350" cy="250" r="70" fill="url(#aboutGrad)" opacity="0.9" filter="url(#aboutGlow)">
+                      <animate attributeName="r" values="70;75;70" dur="3s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="350" cy="250" r="55" fill="hsl(var(--card))" />
+                    <text x="350" y="245" textAnchor="middle" fontSize="18" fontWeight="bold" fill="hsl(265, 75%, 58%)">Brandverse</text>
+                    <text x="350" y="260" textAnchor="middle" fontSize="11" fill="hsl(var(--muted-foreground))">Studio</text>
                   </g>
                   
-                  {/* Card 2: Our Mission */}
-                  <g transform="translate(230, 50)" className="group-hover:translate-y-[-5px] transition-transform duration-300">
-                    <rect x="0" y="0" width="140" height="100" rx="12" fill="hsl(var(--card))" stroke="url(#aboutGrad)" strokeWidth="2" opacity="0.9" className="group-hover:opacity-100 transition-opacity" />
-                    
-                    <text x="70" y="55" textAnchor="middle" fontSize="20" fontWeight="bold" fill="hsl(var(--foreground))">Mission</text>
-                    <text x="70" y="75" textAnchor="middle" fontSize="12" fill="hsl(var(--muted-foreground))">Driven</text>
+                  {/* Value 1: Innovation - Top Left */}
+                  <g id="value1" transform="translate(150, 100)">
+                    <circle cx="0" cy="0" r="55" fill="url(#aboutGrad)" opacity="0.9" filter="url(#aboutGlow)">
+                      <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="0" cy="0" r="42" fill="hsl(var(--card))" />
+                    {/* Lightbulb Icon */}
+                    <foreignObject x="-12" y="-20" width="24" height="24">
+                      <div className="flex items-center justify-center w-full h-full">
+                        <Lightbulb className="w-6 h-6" stroke="hsl(265, 75%, 58%)" fill="none" strokeWidth="2.5" />
+                      </div>
+                    </foreignObject>
+                    <text x="0" y="65" textAnchor="middle" fontSize="15" fontWeight="bold" fill="hsl(var(--foreground))">Innovation</text>
+                    <text x="0" y="80" textAnchor="middle" fontSize="12" fill="hsl(var(--muted-foreground))">Fresh Ideas</text>
                   </g>
                   
-                  {/* Card 3: Our Values */}
-                  <g transform="translate(410, 50)" className="group-hover:translate-y-[-5px] transition-transform duration-300">
-                    <rect x="0" y="0" width="140" height="100" rx="12" fill="hsl(var(--card))" stroke="url(#aboutGrad)" strokeWidth="2" opacity="0.9" className="group-hover:opacity-100 transition-opacity" />
-                   
-                    <text x="70" y="55" textAnchor="middle" fontSize="20" fontWeight="bold" fill="hsl(var(--foreground))">Core</text>
-                    <text x="70" y="75" textAnchor="middle" fontSize="12" fill="hsl(var(--muted-foreground))">Values</text>
+                  {/* Animated Connection 1 */}
+                  <path d="M 188 138 Q 250 180 312 220" stroke="url(#aboutFlow)" strokeWidth="3" fill="none" opacity="0.5" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2.5s" repeatCount="indefinite" />
+                  </path>
+                  <circle cx="250" cy="180" r="4" fill="url(#aboutGrad)">
+                    <animate attributeName="cx" values="188;312;188" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="138;220;138" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                  
+                  {/* Value 2: Excellence - Top Right */}
+                  <g id="value2" transform="translate(550, 100)">
+                    <circle cx="0" cy="0" r="50" fill="url(#aboutGrad)" opacity="0.9" filter="url(#aboutGlow)">
+                      <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="0" cy="0" r="38" fill="hsl(var(--card))" />
+                    {/* Star Icon */}
+                    <foreignObject x="-12" y="-20" width="24" height="24">
+                      <div className="flex items-center justify-center w-full h-full">
+                        <Star className="w-6 h-6" stroke="hsl(265, 75%, 58%)" fill="hsl(265, 75%, 58%)" strokeWidth="2.5" />
+                      </div>
+                    </foreignObject>
+                    <text x="0" y="65" textAnchor="middle" fontSize="15" fontWeight="bold" fill="hsl(var(--foreground))">Excellence</text>
+                    <text x="0" y="80" textAnchor="middle" fontSize="12" fill="hsl(var(--muted-foreground))">Quality First</text>
                   </g>
                   
-                  {/* Central About Us Card */}
-                  <g transform="translate(150, 200)" className="group-hover:scale-105 transition-transform duration-500">
-                    {/* Card Background */}
-                    <rect x="0" y="0" width="300" height="200" rx="16" fill="hsl(var(--card))" stroke="url(#aboutGrad)" strokeWidth="2" opacity="0.9" />
-                    
-                    {/* Title */}
-                    <text x="150" y="35" textAnchor="middle" fontSize="22" fontWeight="bold" fill="hsl(var(--foreground))">About Brandverse</text>
-                    
-                    {/* Key Points */}
-                    <g transform="translate(40, 60)">
-                      {/* Point 1 */}
-                      <g transform="translate(0, 0)">
-                        <circle cx="0" cy="0" r="4" fill="url(#aboutGrad)" />
-                        <text x="15" y="5" fontSize="14" fill="hsl(var(--foreground))">Innovation &amp; Authenticity</text>
-                      </g>
-                      
-                      {/* Point 2 */}
-                      <g transform="translate(0, 30)">
-                        <circle cx="0" cy="0" r="4" fill="url(#aboutGrad)" />
-                        <text x="15" y="5" fontSize="14" fill="hsl(var(--foreground))">Data-Driven Strategies</text>
-                      </g>
-                      
-                      {/* Point 3 */}
-                      <g transform="translate(0, 60)">
-                        <circle cx="0" cy="0" r="4" fill="url(#aboutGrad)" />
-                        <text x="15" y="5" fontSize="14" fill="hsl(var(--foreground))">Creative Excellence</text>
-                      </g>
-                      
-                      {/* Point 4 */}
-                      <g transform="translate(0, 90)">
-                        <circle cx="0" cy="0" r="4" fill="url(#aboutGrad)" />
-                        <text x="15" y="5" fontSize="14" fill="hsl(var(--foreground))">Client Partnership</text>
-                      </g>
-                    </g>
-                    
-                    {/* Decorative Line */}
-                    <line x1="50" y1="50" x2="250" y2="50" stroke="url(#aboutGrad)" strokeWidth="2" opacity="0.3" />
+                  {/* Animated Connection 2 */}
+                  <path d="M 512 138 Q 450 180 388 220" stroke="url(#aboutFlow)" strokeWidth="3" fill="none" opacity="0.5" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
+                  </path>
+                  <circle cx="450" cy="180" r="4" fill="url(#aboutGrad)">
+                    <animate attributeName="cx" values="512;388;512" dur="3s" begin="0.3s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="138;220;138" dur="3s" begin="0.3s" repeatCount="indefinite" />
+                  </circle>
+                  
+                  {/* Value 3: Partnership - Bottom Right */}
+                  <g id="value3" transform="translate(550, 400)">
+                    <circle cx="0" cy="0" r="50" fill="url(#aboutGrad)" opacity="0.9" filter="url(#aboutGlow)">
+                      <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5s" begin="1s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="0" cy="0" r="38" fill="hsl(var(--card))" />
+                    {/* Handshake Icon */}
+                    <foreignObject x="-12" y="-20" width="24" height="24">
+                      <div className="flex items-center justify-center w-full h-full">
+                        <Handshake className="w-6 h-6" stroke="hsl(15, 85%, 60%)" fill="none" strokeWidth="2.5" />
+                      </div>
+                    </foreignObject>
+                    <text x="0" y="65" textAnchor="middle" fontSize="15" fontWeight="bold" fill="hsl(var(--foreground))">Partnership</text>
+                    <text x="0" y="80" textAnchor="middle" fontSize="12" fill="hsl(var(--muted-foreground))">Your Success</text>
                   </g>
+                  
+                  {/* Animated Connection 3 */}
+                  <path d="M 512 362 Q 450 320 388 280" stroke="url(#aboutFlow)" strokeWidth="3" fill="none" opacity="0.5" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" begin="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2.5s" begin="1s" repeatCount="indefinite" />
+                  </path>
+                  <circle cx="450" cy="320" r="4" fill="url(#aboutGrad)">
+                    <animate attributeName="cx" values="512;388;512" dur="3s" begin="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="362;280;362" dur="3s" begin="0.6s" repeatCount="indefinite" />
+                  </circle>
+                  
+                  {/* Value 4: Growth - Bottom Left */}
+                  <g id="value4" transform="translate(150, 400)">
+                    <circle cx="0" cy="0" r="50" fill="url(#aboutGrad)" opacity="0.9" filter="url(#aboutGlow)">
+                      <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5s" begin="1.5s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="0" cy="0" r="38" fill="hsl(var(--card))" />
+                    {/* TrendingUp Icon */}
+                    <foreignObject x="-12" y="-20" width="24" height="24">
+                      <div className="flex items-center justify-center w-full h-full">
+                        <TrendingUp className="w-6 h-6" stroke="hsl(15, 85%, 60%)" fill="none" strokeWidth="2.5" />
+                      </div>
+                    </foreignObject>
+                    <text x="0" y="65" textAnchor="middle" fontSize="15" fontWeight="bold" fill="hsl(var(--foreground))">Growth</text>
+                    <text x="0" y="80" textAnchor="middle" fontSize="12" fill="hsl(var(--muted-foreground))">Together</text>
+                  </g>
+                  
+                  {/* Animated Connection 4 */}
+                  <path d="M 188 362 Q 250 320 312 280" stroke="url(#aboutFlow)" strokeWidth="3" fill="none" opacity="0.5" strokeDasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" begin="0.9s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2.5s" begin="1.5s" repeatCount="indefinite" />
+                  </path>
+                  <circle cx="250" cy="320" r="4" fill="url(#aboutGrad)">
+                    <animate attributeName="cx" values="188;312;188" dur="3s" begin="0.9s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="362;280;362" dur="3s" begin="0.9s" repeatCount="indefinite" />
+                  </circle>
+                  
+                  {/* Rotating Value Ring */}
+                  <g id="rotatingValues">
+                    <circle cx="350" cy="250" r="130" fill="none" stroke="url(#aboutFlow)" strokeWidth="2" opacity="0.2" strokeDasharray="4,4">
+                      <animateTransform attributeName="transform" type="rotate" values="0 350 250;360 350 250" dur="25s" repeatCount="indefinite" />
+                    </circle>
+                    
+                    {/* Orbiting elements */}
+                    <circle cx="480" cy="250" r="5" fill="url(#aboutGrad)" opacity="0.7">
+                      <animateTransform attributeName="transform" type="rotate" values="0 350 250;360 350 250" dur="18s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="350" cy="120" r="5" fill="url(#aboutGrad)" opacity="0.7">
+                      <animateTransform attributeName="transform" type="rotate" values="90 350 250;450 350 250" dur="18s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.5s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="220" cy="250" r="5" fill="url(#aboutGrad)" opacity="0.7">
+                      <animateTransform attributeName="transform" type="rotate" values="180 350 250;540 350 250" dur="18s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="350" cy="380" r="5" fill="url(#aboutGrad)" opacity="0.7">
+                      <animateTransform attributeName="transform" type="rotate" values="270 350 250;630 350 250" dur="18s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1.5s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                  
+                  {/* Floating Story Elements */}
+                  <circle cx="200" cy="180" r="3" fill="url(#aboutGrad)" opacity="0.6">
+                    <animate attributeName="cy" values="180;160;180" dur="3.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="500" cy="180" r="4" fill="url(#aboutGrad)" opacity="0.6">
+                    <animate attributeName="cy" values="180;200;180" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="200" cy="320" r="3" fill="url(#aboutGrad)" opacity="0.6">
+                    <animate attributeName="cy" values="320;300;320" dur="3.2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3.2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="500" cy="320" r="4" fill="url(#aboutGrad)" opacity="0.6">
+                    <animate attributeName="cy" values="320;340;320" dur="3.4s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3.4s" repeatCount="indefinite" />
+                  </circle>
                 </svg>
               </div>
             </div>
