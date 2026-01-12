@@ -220,7 +220,7 @@ ${data.message}
               </h2>
 
               <div className="space-y-5 mb-8">
-                <a href="tel:8937888833" className="block group">
+                <a href="tel:9286758833" className="block group">
                   <Card3D 
                     variant="glass" 
                     className={cn(
@@ -246,7 +246,7 @@ ${data.message}
                     <div className="relative z-10">
                       <p className="text-sm text-muted-foreground mb-0.5 group-hover:text-foreground/70 transition-colors">Phone</p>
                       <p className="font-semibold text-foreground group-hover:text-primary transition-colors duration-500">
-                        8937888833
+                       9286758833
                       </p>
                     </div>
                     
