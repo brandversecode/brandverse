@@ -170,7 +170,7 @@ export function Footer() {
                   </div>
                   <div>
                     <p className="text-xs text-white/50 mb-0.5">Phone</p>
-                    <span className="font-medium text-white group-hover:text-primary transition-colors">8937888833</span>
+                    <span className="font-medium text-white group-hover:text-primary transition-colors">9286758833</span>
                   </div>
                 </a>
               </li>
