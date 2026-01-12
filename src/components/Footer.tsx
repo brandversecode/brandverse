@@ -162,7 +162,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:8937888833"
+                  href="tel:9286758833"
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(265,75%,58%)] to-[hsl(265,75%,48%)] flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-teal/40">
